@@ -1,6 +1,6 @@
-# eosc-assignment1
+# Element of Software Construction - Assignment 1
 
-This template should help get you started developing with Vue 3 in Vite.
+Implement a dynamic shopping list website using Vue.js by doing the following requirements: Build a form using v-model, Add Enter keybinding, and allow user to clear a list.
 
 ## Recommended IDE Setup
 
