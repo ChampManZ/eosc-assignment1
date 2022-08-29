@@ -20,14 +20,21 @@
 
   const newShopList = ref('')
   const shopList = ref([])
+  const headerBool = ref(false)
+  const displayTextWarn = ref('')
   
   function addShopList() {
     if (newShopList.value != "") {
       shopList.value.push({ id: id++, text: newShopList.value })
       newShopList.value = ''
+      displayTextWarn.value = ''
+      headerBool.value = false
     } else {
-      console.log("Please enter a value!")
+      displayTextWarn.value = 'Please enter a list!'
+      headerBool.value = true
     }
+    console.log(displayTextWarn.value)
+    console.log(headerBool.value)
   }
 
   function removeShopList(sl) {
@@ -56,20 +63,24 @@
     <h1>Shopping List</h1>
     <h1>by: 63011342</h1>
   </header> <br>
-  <div class="listArea">
+  <div class="formArea">
     <h3>Add an item here</h3>
     <form @submit.prevent="addShopList">
     <input v-model="newShopList" placeholder="eg. Egg x2">
-    <button class="addBtn">Add</button>
-    <button @click="removeAllList" class="clearBtn">Clear</button>
+    <button @keyup.enter="addShopList" class="addBtn">Add</button>
     </form>
-    <ul>
+  </div>
+  <div class="listArea">
+    <ul class="ulClass">
       <li v-for="i in shopList" :key="i.id">
         {{ i.text }}
         <button @click="removeShopList(i)" class="rmvBtn">X</button>
       </li>
-    </ul>
-  </div>
+    </ul> <br>
+    <button @click="removeAllList" class="clearBtn">Clear</button>
+  </div> <br>
+  <h1 v-if="headerBool" class="ntfHead">{{ displayTextWarn }}</h1>
+  <h1 v-else></h1>
 </template>
 
 <style scoped>

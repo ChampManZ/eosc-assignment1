@@ -9,8 +9,17 @@
   border-radius: 25px;
 }
 
+.formArea {
+  text-align: center;
+}
+
 .listArea {
   text-align: center;
+}
+
+.ulClass {
+  display: inline-block;
+  text-align: left;
 }
 
 .addBtn {
@@ -21,6 +30,7 @@
 }
 
 .clearBtn {
+  display: inline;
   color: #FFFFFF;
   background-color: #f44336;
   border-radius: 3px;
@@ -41,4 +51,9 @@
 
 .item {
   flex-grow: 1;
+}
+
+.ntfHead {
+  text-align: center;
+  color: red;
 }
